@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "admin-pandvikash46",
+      "fullName": "Admin",
+      "email": "pandvikash46@gmail.com",
+      "mobile": "",
+      "passwordHash": "pbkdf2_sha256$210000$df48a2ecb6da5397eeecdf663116e163$fe801c4d9b8c97b804f31656f853fd64a6b78b432d8356541f5fef67959a7cdf",
+      "isVerified": true,
+      "role": "admin",
+      "createdAt": "2026-06-19T00:00:00.000Z"
+    }
+  ],
+  "pendingUsers": [],
+  "otps": []
+}

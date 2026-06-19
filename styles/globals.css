@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-syne: "Syne", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --border: rgba(255,255,255,.08);
+  --border-strong: rgba(255,255,255,.15);
+  --glass: rgba(255,255,255,.04);
+  --glass-strong: rgba(255,255,255,.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% -10%, rgba(255, 107, 0, .16), transparent 32rem),
+    radial-gradient(circle at 85% 10%, rgba(255, 179, 71, .08), transparent 24rem),
+    linear-gradient(180deg, #0D0D0D 0%, #101010 45%, #0D0D0D 100%);
+  color: #F0F0F0;
+  font-family: var(--font-dm-sans);
+}
+
+.light body {
+  background: #f8f8f8;
+  color: #101010;
+}
+
+.light .premium-panel,
+.light .premium-card {
+  background: rgba(255,255,255,.88);
+  color: #101010;
+  border-color: rgba(0,0,0,.08);
+}
+
+body::before {
+  pointer-events: none;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 78%);
+}
+
+::selection {
+  background: rgba(255, 107, 0, .35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111118;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  border-radius: 999px;
+}
+
+@layer components {
+  .premium-panel {
+    @apply rounded-panel border border-white/10 bg-charcoal shadow-luxury backdrop-blur-xl;
+  }
+
+  .premium-card {
+    @apply rounded-panel border border-white/10 bg-charcoal shadow-glow backdrop-blur-xl transition duration-300;
+  }
+
+  .premium-card:hover {
+    @apply -translate-y-1 border-orange/40 shadow-glow;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-br from-orange via-gold to-orange bg-clip-text text-transparent;
+  }
+
+  .section-shell {
+    @apply px-3 py-8 sm:px-6 sm:py-10;
+  }
+
+  .input-shell {
+    @apply w-full rounded-lg border border-white/10 bg-panel2 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-zinc-600 focus:border-orange focus:ring-2 focus:ring-orange/20;
+  }
+
+  .luxury-band {
+    @apply border-y border-white/10 bg-white/[.025] backdrop-blur-xl;
+  }
+}
