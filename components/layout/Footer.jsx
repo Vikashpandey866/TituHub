@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { contactDetails } from "../../lib/contact";
 
 const groups = {
   Modules: [
@@ -24,6 +25,8 @@ const groups = {
 };
 
 export default function Footer() {
+  const { email, phone, whatsappUrl, location, facebook, instagram } = contactDetails;
+
   return (
     <footer className="border-t border-white/10 bg-black/35 px-6 py-10 backdrop-blur-xl">
       <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_.8fr_.8fr_1fr]">
@@ -51,15 +54,15 @@ export default function Footer() {
         <div>
           <div className="mb-3 text-sm font-semibold text-white">Business Contact</div>
           <div className="space-y-3 text-sm text-zinc-500">
-            <div className="flex items-center gap-2"><Mail size={15} className="text-orange" /> pandvikash46@gmail.com</div>
-            <div className="flex items-center gap-2"><Phone size={15} className="text-orange" /> +91 91109 89610</div>
-            <div className="flex items-center gap-2"><MapPin size={15} className="text-orange" /> India</div>
+            <div className="flex items-center gap-2"><Mail size={15} className="text-orange" /> <Link href={`mailto:${email}`} className="transition hover:text-orange">{email}</Link></div>
+            <div className="flex items-center gap-2"><Phone size={15} className="text-orange" /> <Link href={`tel:${phone}`} className="transition hover:text-orange">{phone}</Link></div>
+            <div className="flex items-center gap-2"><MapPin size={15} className="text-orange" /> {location}</div>
           </div>
           <div className="mt-5 flex gap-2">
-            <Link href="https://www.facebook.com/share/1AzBnfj8sD/" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="Facebook"><Facebook size={17} /></Link>
-            <Link href="https://www.instagram.com/vikashpandey007?igsh=MWg2N3hmZ3doNjVucw==" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="Instagram"><Instagram size={17} /></Link>
-            <Link href="https://wa.me/919110989610" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="WhatsApp"><MessageCircle size={17} /></Link>
-            <Link href="mailto:pandvikash46@gmail.com" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="Email"><Mail size={17} /></Link>
+            <Link href={facebook} target="_blank" rel="noreferrer" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="Facebook"><Facebook size={17} /></Link>
+            <Link href={instagram} target="_blank" rel="noreferrer" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="Instagram"><Instagram size={17} /></Link>
+            <Link href={whatsappUrl} target="_blank" rel="noreferrer" className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="WhatsApp"><MessageCircle size={17} /></Link>
+            <Link href={`mailto:${email}`} className="rounded-lg border border-white/10 p-2 text-zinc-400 hover:border-orange hover:text-orange" aria-label="Email"><Mail size={17} /></Link>
           </div>
           <div className="mt-5 text-xs text-zinc-600">© 2026 TituHub. All rights reserved.</div>
         </div>
