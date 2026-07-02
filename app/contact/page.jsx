@@ -15,7 +15,7 @@ export default function ContactPage() {
         </p>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <Tile icon={Mail} label="Email" value="pandvikash46@gmail.com" />
-          <Tile icon={Phone} label="Phone" value="+91 XXXXX XXXXX" />
+          <Tile icon={Phone} label="Phone" value="+91 91109 89610" />
           <Tile icon={MapPin} label="Service Area" value="India, expanding city by city" />
         </div>
       </div>
